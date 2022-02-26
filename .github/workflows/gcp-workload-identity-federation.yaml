@@ -1,0 +1,22 @@
+name: gcp workload identity federation
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  generate-auth-token:
+  runs-on: ubuntu-latest
+  steps:
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v0'
+      with:
+        workload_identity_provider: ${{ secrets.provider_name }}
+        service_account: ${{ secrets.sa_email }}
+
+
+
+
+
+
+
+
